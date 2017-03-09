@@ -4,7 +4,7 @@ using System.Text;
 using System.Configuration;
 
 //Computer Vision Subscription Key
-private const string SubscriptionKey = "[Your Cognitive Services Computer Vision Subscription Key]";
+private const string SubscriptionKey = "[Your Computer Vision Subscription Key]";
 
 public static void Run(string myQueueItem, out object outputDocument, TraceWriter log)
 {
@@ -52,7 +52,7 @@ public static string HttpPost(string URI, string body, TraceWriter log)
 {
     System.Net.WebRequest req = System.Net.WebRequest.Create(URI);
     req.Method = "POST";
-    req.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    req.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
     byte[] bytes = System.Text.Encoding.ASCII.GetBytes(body);
 
     log.Info($"Posting data");
