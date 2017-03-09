@@ -10,7 +10,7 @@ Adding a message containing the image blob URL to the queue generates a `QueueTr
 
 When the data is succesfully returned from the Computer Vision API, the JSON document is written to an [Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) where we could perform queries or analytics against the data.
 
-To make this demo work, you need to - 
+To make this demo work, you need to clone or download this repository, then - 
 
 ###Edit the appsettings.json file with your own values
 
@@ -31,5 +31,12 @@ To make this demo work, you need to -
 private const string SubscriptionKey = "[Your Cognitive Services Computer Vision Subscription Key]";
 
 ```
+### Upload the Functions code to you Azure Function App Environment
+- You can do this in Visual Studio by right clicking on the project name and selecting 'Deploy'.
+- You can use [Continuous Integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment)
+- Cut and paste this code into [a Function you created in the Azure Portal](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-portal)
+
+
+
 ## Learn more about developing [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference)
 
