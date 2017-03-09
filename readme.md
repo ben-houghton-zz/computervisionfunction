@@ -1,6 +1,6 @@
 ﻿# Image Analysis Function Using Azure Cognitive Services - C<span>#</span>
 
-This Function will process images uploaded to an Azure Storage Blob container using the [Azure Cognitive Services Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)
+This [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) will process images uploaded to an Azure Storage Blob container using the [Azure Cognitive Services Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)
 ## How it works
 
 When the an image is uploaded to the Azure Storage Account blob container (You can use [Azure Storage Explorer](http://storageexplorer.com/) for this) a `BlobTrigger` event is generated and the ImageAnalysisBlobTrigger puts the blob URL on an Azure Storage Queue.
