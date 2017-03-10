@@ -7,6 +7,13 @@ The Computer Vision API provides state-of-the-art algorithms to process images a
 content, or it can be used to find all the faces in an image. It also has other features like estimating dominant and accent colors, categorizing the content of images, 
 and describing an image with complete English sentences. Additionally, it can also intelligently generate images thumbnails for displaying large images effectively.
 
+## What you'll need
+
+- An [Azure Subscription](https://azure.microsoft.com/en-gb/free/?&WT.srch=1&WT.mc_ID=SEM_Bing_UKAzureBG_)
+- An [Azure Function App](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
+- An [Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) instance
+- An [Azure Storage Account](https://azure.microsoft.com/en-gb/services/storage/)
+
 ## How it works
 
 When the an image is uploaded to the Azure Storage Account blob container (You can use [Azure Storage Explorer](http://storageexplorer.com/) for this) a `BlobTrigger` event is generated and the ImageAnalysisBlobTrigger puts the blob URL on an Azure Storage Queue.
