@@ -34,16 +34,11 @@ To make this demo work, you need to clone or download this repository, then -
     "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=[StorageAccountName];AccountKey=[Storage Account Key];",
     "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=[StorageAccountName];AccountKey=[Storage Account Key];",
     "DocumentDBConnection": "AccountEndpoint=[Document DB EndPoint];AccountKey=[Document DB Account Key];"
+	"SubscriptionKey": "[Your Cognitive Services Computer Vision Key]"
   }
 }
 ```
-###Edit the ImageAnalysisQueueTrigger\run.csx file with your own [Computer Vision Subscription Key](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions)
-```javascript
 
-//Computer Vision Subscription Key
-private const string SubscriptionKey = "[Your Cognitive Services Computer Vision Subscription Key]";
-
-```
 ### Upload the Functions code to you Azure Function App Environment
 - You can do this in Visual Studio by right clicking on the project name and selecting 'Deploy'.
 - You can use [Continuous Integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment)

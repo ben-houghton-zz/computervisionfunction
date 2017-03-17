@@ -3,9 +3,6 @@ using System.Web;
 using System.Text;
 using System.Configuration;
 
-//Computer Vision Subscription Key
-private const string SubscriptionKey = "361c1fef923b46c89f31602e59548206";
-
 public static void Run(string myQueueItem, out object outputDocument, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
@@ -50,9 +47,12 @@ private static string AnalyseImage(string blobUrl, TraceWriter log)
 /// <returns></returns>
 public static string HttpPost(string URI, string body, TraceWriter log)
 {
+
+    var subscriptionKey = System.Environment.GetEnvironmentVariable("SubscriptionKey", EnvironmentVariableTarget.Process);
+
     System.Net.WebRequest req = System.Net.WebRequest.Create(URI);
     req.Method = "POST";
-    req.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+    req.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
     byte[] bytes = System.Text.Encoding.ASCII.GetBytes(body);
 
     log.Info($"Posting data");
