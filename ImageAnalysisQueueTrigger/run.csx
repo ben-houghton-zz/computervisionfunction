@@ -4,7 +4,7 @@ using System.Text;
 using System.Configuration;
 
 //Computer Vision Subscription Key
-private const string SubscriptionKey = "[Your Computer Vision Subscription Key]";
+private const string SubscriptionKey = "361c1fef923b46c89f31602e59548206";
 
 public static void Run(string myQueueItem, out object outputDocument, TraceWriter log)
 {
