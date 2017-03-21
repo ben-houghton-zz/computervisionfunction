@@ -28,6 +28,7 @@ module.exports = function (context, myQueueItem, outputDocument) {
               
                 context.log('Written to DocumentDB', body);
                 context.bindings.outputDocument = body;
+                context.bindings.outputDocument.imageUrl =  myQueueItem;
                
             }
             context.done();
