@@ -1,0 +1,31 @@
+﻿{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "ocrimagesdocdb",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "inputDocument",
+      "type": "documentDB",
+      "databaseName": "ImageAnalysisDatabase",
+      "collectionName": "ImageAnalysisCollection",
+      "connection": "DocumentDBConnection",
+      "id": "{queueTrigger}",
+      "direction": "in"
+    },
+    {
+      "type": "documentDB",
+      "name": "outputDocument",
+      "databaseName": "ImageAnalysisDatabase",
+      "collectionName": "ImageAnalysisCollection",
+      "createIfNotExists": true,
+      "connection": "DocumentDBConnection",
+      "direction": "out"
+    }
+
+  ]
+}

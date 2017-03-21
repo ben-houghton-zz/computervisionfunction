@@ -16,6 +16,13 @@
       "createIfNotExists": true,
       "connection": "DocumentDBConnection",
       "direction": "out"
+    },
+    {
+      "name": "myOutQueueItem",
+      "type": "queue",
+      "direction": "out",
+      "queueName": "ocrimagesdocdb",
+      "connection": "AzureWebJobsDashboard"
     }
   ]
 }

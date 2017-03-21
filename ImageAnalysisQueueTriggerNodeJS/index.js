@@ -1,11 +1,14 @@
 ﻿
 var request = require('request');
+var uuidV1 = require('uuid/v1');
 
-module.exports = function (context, myQueueItem, outputDocument) {
+module.exports = function (context, myQueueItem, outputDocument, myOutQueueItem) {
 
     context.log('Node.js queue trigger function processed work item', myQueueItem);
 
     var queryString = 'visualFeatures=Categories,Tags,Description,Faces,ImageType,Color,Adult&language=en';
+
+    var documentId = uuidV1();
 
     request.post({
         url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?'+ queryString,
@@ -26,12 +29,15 @@ module.exports = function (context, myQueueItem, outputDocument) {
             }
             else {
               
-                context.log('Written to DocumentDB', body);
+
                 context.bindings.outputDocument = body;
-                context.bindings.outputDocument.imageUrl =  myQueueItem;
-               
+                context.bindings.outputDocument.id = documentId;
+                context.bindings.outputDocument.imageUrl = myQueueItem;
+                context.log('Written to DocumentDB', context.bindings.outputDocument);
+                context.bindings.myOutQueueItem = documentId;
+                context.log('OutputQueue', documentId);
+                context.done();
             }
-            context.done();
         });
 
 }
