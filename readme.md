@@ -31,7 +31,7 @@ all the tags and meta data returned from the Computer Vision API.
 
 To make this demo work, you need to clone or download this repository, then - 
 
-###Edit the appsettings.json file with your own values
+### Edit the appsettings.json file with your own values
 
 ```javascript
 {
