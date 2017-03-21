@@ -7,6 +7,7 @@ The Computer Vision API provides state-of-the-art algorithms to process images a
 content, or it can be used to find all the faces in an image. It also has other features like estimating dominant and accent colors, categorizing the content of images, 
 and describing an image with complete English sentences. Additionally, it can also intelligently generate images thumbnails for displaying large images effectively.
 
+
 ## What you'll need
 
 - An [Azure Subscription](https://azure.microsoft.com/en-gb/free/?&WT.srch=1&WT.mc_ID=SEM_Bing_UKAzureBG_)
@@ -22,6 +23,11 @@ Adding a message containing the image blob URL to the queue generates a `QueueTr
 [Azure Cognitive Services Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) API. The API performs images analysis and returns a JSON payload of data.
 
 When the data is succesfully returned from the Computer Vision API, the JSON document is written to an [Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) where we could perform queries or analytics against the data.
+
+Next the image is analysed for any text using the Computer Vision OCR service, any data that is returned is then used to update the DocumentDB document.
+
+Because this data is written to a DocumentDB database, it can be integrated with [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-howto-index-documentdb) which then gives you a searchable respository for 
+all the tags and meta data returned from the Computer Vision API.
 
 To make this demo work, you need to clone or download this repository, then - 
 
